@@ -13464,7 +13464,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Import &#39;r2_score&#39;</span>
@@ -13526,7 +13526,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the performance of this model</span>
@@ -13579,7 +13579,8 @@ Standard deviation of prices: $165,171.13
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-Yes. Because the value of proportion shows that the dependent variable is close to be predicted by 92.3 percent.</p>
+Yes, R-squared is the proportion of the explained variation with the Total variation. The value of proportion shows that the dependent variable is close to be predicted by 92.3 percent. So we consider that the model captured the variation based on this valus is close to 1.</p>
+<p>Its why the relation of the mean squared error for the linear regression model is a lot smaller than the mean squared error of the independent variable.Usually, the larger the R-squared, the better the regression model fits your predictions.</p>
 
 </div>
 </div>
@@ -13653,7 +13654,7 @@ Yes. Because the value of proportion shows that the dependent variable is close 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The benefit of splitting a dataset is that it prevents 'overfitting', a problem where the model has become too finely tuned to the data its been given so that it is unable to create accurate predictions on data it hasn't been trained on. It allows testing the model on an independent dataset for checking its performance.</p>
+<p>Splitting a dataset in training and testing parts could help the analyst to observ the model behavior according to unseen scenarios. If the whole dataset is used to training the model, for instance, should be impossible to measure the quality of the model because you lost the reference of outside points to validate the accurancy of a model. With a testing piece of dataset you be able to measure the response of a ML model comparing the predictions of a model with the real values. This prevents 'overfitting', where the model has become too finely tuned to the data its been given so that it is unable to create accurate predictions on data it hasn't been trained on.</p>
 
 </div>
 </div>
@@ -13842,7 +13843,7 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Grid search is a technique to find good values for model parameters that cannot be optimized directly. It works by defining a grid over the model parameters and then evaluating model performance for each point on the grid (using a validation set (or CV), not the training data). You can then choose the point on the grid that seems to work best.</p>
+<p>Grid search is a way to evaluate the best value of a model metric when you have more then one hyper-parameter. To run you need to have the the hyper-parameters and use the training values to have the values of other parameter on the grid, so use the cross-validation to calculate the metric of the set of parameter values and thus validate the model with the testing set. The grid is used because its a relation between two hyper-parameters. The hyper-parameters are the parameters of a model that is important to the model is the matter parameters of a model. One example of this technique, is the evaluation of the best max_depth of the related Decision tree used in this project, with the the depth as a hyper-parameter and the scores as the metrics.</p>
 
 </div>
 </div>
@@ -13865,8 +13866,8 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The k-fold cross-validation training technique comprises partioning the data set into k bins of equal size, then running k learning experiments using each testing set, and averaging the test results from those k experiments. It allows you to use all of your data for both training and testing, while there is an inherent a trade-off in normal cross-validation between maximising your training and testing data, since increasing one would lead to decreasing the other.</p>
-<p>The benefit k-fold cross-validation provides is that it is a hedge against overfitting, since it would allow you to grid search and cross-validate against multiple iterations of a train/test split, rather than just finding the optimal parameters for one train/test split.</p>
+<p>The k-fold cross-validation training technique comprises partioning the data set into k parts of data, then training the model k times with different sets of data to training and testing get the results to calculate a average of the evalition metric of the model. This is used to get an unbiased estimate of model generalization on unseen data.</p>
+<p>The benefit of using grid search is this helps us in getting an unbiased estimate of model evaluation metric which helps us decide in a more unbiased way, because we will do the process k times with the hyper-parameter combination and helps to get more accurate values to choose the best model.</p>
 
 </div>
 </div>
